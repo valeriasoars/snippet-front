@@ -1,0 +1,23 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { SnippetFormComponent } from './snippet-form.component';
+
+describe('SnippetFormComponent', () => {
+  let component: SnippetFormComponent;
+  let fixture: ComponentFixture<SnippetFormComponent>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [SnippetFormComponent]
+    })
+    .compileComponents();
+
+    fixture = TestBed.createComponent(SnippetFormComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
