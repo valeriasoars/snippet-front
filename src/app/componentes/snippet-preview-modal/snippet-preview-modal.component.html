@@ -1,1 +1,57 @@
-<p>modal de pre-visualizacao!</p>
+<div *ngIf="isOpen" class="fixed inset-0 bg-black/60 backdrop-blur-sm flex justify-center items-center z-50">
+  <div class="bg-white dark:bg-gray-900 rounded-2xl shadow-2xl p-6 w-[90%] max-w-2xl relative border border-gray-200 dark:border-gray-700 transition-all">
+    
+    <button
+      class="absolute top-3 right-3 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition"
+      (click)="closeModalPreview()"
+    >
+      <i class="fa-solid fa-xmark text-lg"></i>
+    </button>
+
+    <div class="flex items-center justify-start gap-2 mb-3">
+      <i class="fa-solid fa-code text-blue-600 text-lg"></i>
+      <h2 class="text-lg font-semibold text-gray-900 dark:text-gray-100">React useState Hook</h2>
+    </div>
+    <p class="text-gray-600 dark:text-gray-400 text-sm mb-5">
+      Exemplo básico de uso do <code class="text-blue-600 font-mono">useState</code>.
+    </p>
+
+    <pre class="bg-gray-900 text-green-400 text-sm rounded-lg p-3 overflow-x-auto font-mono">
+        <code>
+        // Este é um exemplo
+        // de código
+        </code>
+    </pre>
+
+
+    <div class="flex justify-between items-center mt-6 border-t pt-4">
+      <div class="text-sm text-gray-500 dark:text-gray-400">
+        <span class="font-medium text-gray-700 dark:text-gray-300">Categoria:</span> JavaScript
+      </div>
+
+      <div class="flex gap-3">
+        <button
+          (click)="openEditModal()"
+          class="cursor-pointer px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+        >
+          <i class="fa-solid fa-pen mr-1"></i> Editar
+        </button>
+
+        <button
+          type="submit"
+          class="cursor-pointer px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 text-red-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800  transition"
+        >
+          <i class="fa-solid fa-trash mr-1"></i> Excluir
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<app-snippet-form   
+[isOpen]="isModalEditOpen"
+(close)="fecharModalEdit()"
+(save)="onSaveSnippet($event)"
+[snippetData]="selectedSnippet">
+</app-snippet-form>

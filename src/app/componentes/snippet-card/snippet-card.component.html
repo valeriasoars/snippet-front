@@ -1,6 +1,6 @@
 <div class="max-w-sm w-full bg-white border border-gray-200 rounded-xl shadow-md dark:bg-gray-800 dark:border-gray-700 overflow-hidden hover:shadow-lg transition-shadow">
   <div class="p-5">
-    
+    <div class="cursor-pointer" (click)="openPreviewSnippetModal()">
     <div class="flex items-center justify-between mb-2">
       <h5 class="text-xl font-semibold text-gray-900 dark:text-white">
         React useState Hook
@@ -21,6 +21,7 @@
         // de código
         </code>
     </pre>
+    </div>
 
     <div class="flex justify-between items-center mt-3 text-black">
       <div class="flex gap-2 flex-wrap">
@@ -33,10 +34,10 @@
       </div>
 
       <div class="flex justify-end items-center gap-3 mt-3 text-black">
-        <button title="Copiar código">
+        <button class="cursor-pointer" title="Copiar código">
             <i class="fa-solid fa-copy"></i>
         </button>
-        <button title="Editar snippet" (click)="openEditModal()">
+        <button class="cursor-pointer" title="Editar snippet" (click)="openEditModal()">
             <i class="fa-solid fa-pen-to-square"></i>
         </button>
       </div>
@@ -49,3 +50,8 @@
 (save)="onSaveSnippet($event)"
 [snippetData]="selectedSnippet">
 </app-snippet-form>
+
+<app-snippet-preview-modal
+[isOpen]="isOpenModalPreviewSnippet"
+(close)="closePreviewSnippet()"
+></app-snippet-preview-modal>
