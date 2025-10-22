@@ -36,9 +36,16 @@
         <button title="Copiar código">
             <i class="fa-solid fa-copy"></i>
         </button>
-        <button title="Editar snippet">
+        <button title="Editar snippet" (click)="openEditModal()">
             <i class="fa-solid fa-pen-to-square"></i>
         </button>
       </div>
     </div>
 </div>
+
+<app-snippet-form   
+[isOpen]="isModalOpen"
+(close)="fecharModal()"
+(save)="onSaveSnippet($event)"
+[snippetData]="selectedSnippet">
+</app-snippet-form>

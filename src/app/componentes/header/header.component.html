@@ -6,7 +6,7 @@
         <span class="text-xl font-semibold dark:text-white">Code Snippet</span>
       </a>
 
-      <button class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition flex items-center gap-2">
+      <button (click)="abrirModal()" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition flex items-center gap-2">
         <i class="fa-solid fa-plus"></i>
         <span>Novo Snippet</span>
       </button>
@@ -47,3 +47,8 @@
     </div>
   </nav>
 </header>
+
+<app-snippet-form
+  [isOpen]="isModalOpen"
+  (close)="fecharModal()"
+></app-snippet-form>
